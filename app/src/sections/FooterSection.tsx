@@ -1,75 +1,30 @@
-import { useState } from 'react';
-import { MapPin, Clock, Phone, Mail, Send, CheckCircle } from 'lucide-react';
+  import { MapPin, Clock, Phone, Mail } from 'lucide-react';
 
 interface FooterSectionProps {
   onOpenModal: () => void;
 }
 
 export default function FooterSection({ onOpenModal }: FooterSectionProps) {
-  const [formData, setFormData] = useState({ name: '', phone: '', message: '' });
-  const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (formData.name && formData.phone) {
-      setSubmitted(true);
-      setTimeout(() => {
-        setSubmitted(false);
-        setFormData({ name: '', phone: '', message: '' });
-      }, 3000);
-    }
-  };
 
   return (
     <footer className="bg-midnight pt-20 pb-8">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid md:grid-cols-3 gap-12 mb-16">
           {/* Column 1 - Contact Form */}
-          <div className="section-reveal">
-            <h3 className="font-display text-2xl font-bold text-white mb-6">
-              Get a <span className="text-amber">Free Quote</span>
-            </h3>
-            {submitted ? (
-              <div className="bg-growth/10 border border-growth/30 rounded-xl p-8 text-center">
-                <CheckCircle className="w-12 h-12 text-growth mx-auto mb-4" />
-                <p className="text-white font-semibold text-lg">Thank you!</p>
-                <p className="text-white/60">We will contact you within 24 hours.</p>
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <input
-                  type="text"
-                  placeholder="Your Name"
-                  value={formData.name}
-                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  required
-                  className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder:text-white/40 focus:outline-none focus:border-amber transition-colors"
-                />
-                <input
-                  type="tel"
-                  placeholder="Phone / WhatsApp Number"
-                  value={formData.phone}
-                  onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                  required
-                  className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder:text-white/40 focus:outline-none focus:border-amber transition-colors"
-                />
-                <textarea
-                  placeholder="Your Message (Optional)"
-                  value={formData.message}
-                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  rows={3}
-                  className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder:text-white/40 focus:outline-none focus:border-amber transition-colors resize-none"
-                />
-                <button
-                  type="submit"
-                  className="btn-primary w-full group"
-                >
-                  <Send className="w-4 h-4 mr-2" />
-                  Send Message
-                </button>
-              </form>
-            )}
-          </div>
+<div className="section-reveal">
+  <h3 className="font-display text-4xl font-bold text-white leading-tight mb-6">
+     Your Trusted <span className="text-amber">Solar Energy Partner.</span>
+  </h3>
+
+  <p className="text-white/70 text-lg leading-8 max-w-md mb-6">
+    Every solar installation is more than just panels—it's a long-term investment in lower electricity bills, energy independence, and a sustainable future.
+  </p>
+
+  <p className="text-white/50 leading-7 max-w-md">
+    At Sarwer Enterprises, we combine premium products, expert installation, and trusted support to deliver solar solutions that are built to last for homes, businesses, farms, and industries.
+  </p>
+</div>
 
           {/* Column 2 - Contact Details */}
           <div className="section-reveal" style={{ transitionDelay: '0.15s' }}>

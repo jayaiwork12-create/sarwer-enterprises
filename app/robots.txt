@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://sarwer-enterprises-dthj.vercel.app/sitemap.xml

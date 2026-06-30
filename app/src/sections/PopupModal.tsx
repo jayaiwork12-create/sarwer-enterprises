@@ -8,7 +8,7 @@ interface PopupModalProps {
 
 export default function PopupModal({ isOpen, onClose }: PopupModalProps) {
   const [formData, setFormData] = useState({ name: '', phone: '', message: '' });
-  const [submitted, setSubmitted] = useState(false);
+  const [submitted] = useState(false);
 
   useEffect(() => {
     if (isOpen) {
